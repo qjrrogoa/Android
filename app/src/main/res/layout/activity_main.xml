@@ -1,18 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <GridLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="#ff0000"
+        android:rowCount="2"
+        android:columnCount="2"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        >
+        <!--
+        각 컬럼에 배치된 위젯의
+        android:layout_width="match_parent"는 적용됨
+        android:layout_gravity="fill_horizontal"와 같다
+        android:layout_height="match_parent"는 적용 안됨 (layout_gravity="fill-vertical"해야 함)
+        -->
+        <Button android:text="1행 1열" android:layout_marginRight="5dp"/>
+        <Button android:text="1행 2열" android:layout_width="match_parent"/>
+        <Button android:text="2행 1열" android:layout_marginRight="5dp"/>
+        <Button android:text="2행 2열" android:layout_gravity="fill_horizontal"/>
+    </GridLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00ff00"
+        android:rowCount="2"
+        android:columnCount="2"
+        android:padding="5dp"
+        android:orientation="vertical"
+        >
+        <Button android:text="1행 1열" android:layout_width="150dp" android:layout_height="100dp"/>
+        <Button android:text="2행 1열" android:layout_gravity="fill_horizontal"/>
+        <Button android:text="1행 2열" android:layout_gravity="fill_horizontal|fill_vertical"/>
+        <Button android:text="2행 2열" android:layout_gravity="fill"/>
+    </GridLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0000ff"
+        android:rowCount="3"
+        android:columnCount="3"
+        android:padding="5dp"
+        >
+        <Button android:text="1행 1열" android:layout_marginRight="5dp" android:layout_width="150dp" android:layout_height="100dp"/>
+        <Button android:text="1행 2열" android:layout_columnSpan="2" android:layout_gravity="fill"/>
+
+        <Button android:text="2행 1열" android:layout_marginRight="5dp" android:layout_rowSpan="2" android:layout_gravity="fill"/>
+        <Button android:text="2행 2열" android:layout_marginRight="5dp"/>
+        <Button android:text="2행 3열" android:layout_gravity="fill_horizontal"/>
+
+        <Button android:text="3행 2열"/>
+        <Button android:text="3행 3열" android:layout_gravity="fill"/>
+
+    </GridLayout>
+    <!--
+        android:layout_rowSpan
+        android:layout_columnSpan는
+        android:layout_gravity="fill"와 같이 사용하자
+     -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:rowCount="3"
+        android:columnCount="10"
+        android:padding="5dp"
+        >
+
+
+
+    </GridLayout>
+</LinearLayout>
