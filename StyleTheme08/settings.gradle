@@ -1,0 +1,2 @@
+rootProject.name = "StyleTheme08"
+include ':app'
