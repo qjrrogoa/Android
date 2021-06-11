@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <!-- 각 컬럼에 배치된(위젯)의 가로폭 세로폭 지정시
+        match_parent는 적용안됨(기본이 wrap_content, 단, 숫자는 적용됨)
+     어느 행의 특정 컬럼의 가로폭을 숫자로 지정시
+     모든 행의 해당 컬럼들이 설정한 가로폭으로 변경됨
+     단,앞의 컬럼은 뒤의 컬럼의 영향을 받지 않음
+     어느 행의 특정 컬럼의 세로폭을 숫자로 지정시
+     해당 행의 특정 컬럼의 세로폭만 변한다.
+     또한 숫자로 지정한 컬럼의 세로폭에 다른 컬럼들
+     의 세로폭을 맞추려면 layout_height="MATCH_PARENT"
+     로 지정
+   -->
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#ff0000">
+        <TableRow android:background="#00ffff">
+            <Button android:text="1행1열"/>
+            <Button android:text="1행2열"/>
+            <Button android:text="1행3열" android:layout_width="match_parent"/>
+        </TableRow>
+        <TableRow >
+            <Button android:text="2행1열" android:layout_width="100dp" android:layout_height="70dp"/>
+            <Button android:text="2행2열" android:layout_height="match_parent"/><!--height:match_parent적용됨-->
+            <Button android:text="2행3열"  android:layout_width="match_parent"/><!--width:match_parent적용안됨-->
+        </TableRow>
+        <TableRow  android:background="#768944">
+            <Button android:text="3행1열"   android:layout_height="match_parent"/>
+            <Button android:text="3행2열"   android:layout_width="150dp" android:layout_height="80dp"/>
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00ff00"
+        android:stretchColumns="*"
+        >
+        <TableRow>
+            <Button android:text="1행1열"/>
+            <Button android:text="1행2열"/>
+            <Button android:text="1행3열"/>
+        </TableRow>
+        <TableRow>
+            <Button android:text="2행1열"/>
+            <Button android:text="2행2열"/>
+        </TableRow>
+    </TableLayout>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0000ff"
+        android:stretchColumns="1,2"
+        >
+        <TableRow>
+            <Button android:text="1행1열"/>
+            <Button android:text="1행2열"/>
+            <Button android:text="1행3열"/>
+        </TableRow>
+        <TableRow>
+            <Button android:text="2행1열"/>
+            <Button android:text="2행2열"/>
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00ffff"
+        android:stretchColumns="1"
+        >
+        <TableRow>
+            <Button android:text="1행1열"/>
+            <Button android:text="1행2열"/>
+            <Button android:text="1행3열"/>
+        </TableRow>
+        <TableRow>
+            <!--
+            <Button android:text="2행1열" android:layout_span="3"/>
+            -->
+            <!--
+            <Button android:text="2행1열"/>
+            <Button android:text="2행2열" android:layout_span="2"/>
+            -->
+            <Button android:text="2행3열" android:layout_column="2"/>
+            <Button android:text="2행4열" android:layout_column="3"/>
+        </TableRow>
+    </TableLayout>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="*"
+        android:padding="10dp"
+        >
+        <TableRow>
+            <TextView android:text="아 이 디" android:textSize="18sp"  android:gravity="right" android:paddingRight="10dp"/>
+            <EditText android:hint="아이디를 입력하세요?" android:layout_span="7" android:id="@+id/username"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:text="비 밀 번 호" android:textSize="18sp"  android:gravity="right" android:paddingRight="10dp"/>
+            <EditText android:hint="비밀번호를 입력하세요?" android:layout_span="7" android:inputType="textPassword" android:id="@+id/password"/>
+        </TableRow>
+        <TableRow>
+            <Button android:text="확인" android:layout_column="6" android:layout_marginRight="5dp" android:id="@+id/btnOk"/>
+            <Button android:text="취소" android:layout_column="7" android:id="@+id/btnCancel"/>
+        </TableRow>
+
+
+
+    </TableLayout>
+</LinearLayout>

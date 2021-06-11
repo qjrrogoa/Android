@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        >
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="메뉴1"
+            android:textColor="@color/white"
+            android:id="@+id/btnFrame1"
+            android:background="@color/black"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="메뉴2"
+            android:textColor="@color/white"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/btnFrame2"
+            android:background="@color/black"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="메뉴3"
+            android:textColor="@color/white"
+            android:id="@+id/btnFrame3"
+            android:background="@color/black"
+
+            />
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#AFEEEE88"
+        android:id="@+id/frameLayout"
+        >
+        <!-- 첫번째 화면 구성-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/frame1"
+            android:padding="10dp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="첫번째 화면입니다"
+                android:textSize="20sp"
+                android:gravity="center_horizontal"/>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:stretchColumns="*"
+                android:padding="10dp"
+                >
+                <TableRow>
+                    <TextView android:text="아 이 디" android:textSize="18sp"  android:gravity="right" android:paddingRight="10dp"/>
+                    <EditText android:hint="아이디를 입력하세요?" android:layout_span="7" android:id="@+id/username"/>
+                </TableRow>
+                <TableRow>
+                    <TextView android:text="비 밀 번 호" android:textSize="18sp"  android:gravity="right" android:paddingRight="10dp"/>
+                    <EditText android:hint="비밀번호를 입력하세요?" android:layout_span="7" android:inputType="textPassword" android:id="@+id/password"/>
+                </TableRow>
+                <TableRow>
+                    <Button android:text="확인" android:layout_column="6" android:layout_marginRight="5dp" android:id="@+id/btnOk"/>
+                    <Button android:text="취소" android:layout_column="7" android:id="@+id/btnCancel"/>
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+        <!--
+      방법1일때 즉 뷰의 visibiltity속성 이용시
+      아래 2개의 버튼 태그에 아래 속성 추가
+      android:visibility="invisible"
+      -->
+        <!--두번째 화면-->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="두번째 화면입니다"
+            android:id="@+id/frame2"
+            android:background="#00ff00"
+
+            />
+        <!--세번째 화면-->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="세번째 화면입니다"
+            android:id="@+id/frame3"
+            android:background="#8B7171"
+            android:textColor="@color/white"
+
+            />
+
+    </FrameLayout>
+</LinearLayout>
