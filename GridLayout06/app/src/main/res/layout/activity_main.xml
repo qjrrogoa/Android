@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,18 +14,16 @@
         android:rowCount="2"
         android:columnCount="2"
         android:orientation="horizontal"
-        android:padding="5dp"
-        >
+        android:padding="5dp">
         <!--
         각 컬럼에 배치된 위젯의
-        android:layout_width="match_parent"는 적용됨
-        android:layout_gravity="fill_horizontal"와 같다
-        android:layout_height="match_parent"는 적용 안됨 (layout_gravity="fill-vertical"해야 함)
-        -->
-        <Button android:text="1행 1열" android:layout_marginRight="5dp"/>
-        <Button android:text="1행 2열" android:layout_width="match_parent"/>
-        <Button android:text="2행 1열" android:layout_marginRight="5dp"/>
-        <Button android:text="2행 2열" android:layout_gravity="fill_horizontal"/>
+        android:layout_width="match_parent" 는 적용돔
+         즉 android:layout_gravity="fill_horizontal"와 같다
+         android:layout_height="match_parent" 는 적용 안됨(android:layout_gravity="fill_vertical" 해야함) -->
+        <Button android:text="1행1열" android:layout_marginRight="5dp"/>
+        <Button android:text="1행2열" android:layout_width="match_parent"/>
+        <Button android:text="2행1열" android:layout_marginRight="5dp"/>
+        <Button android:text="2행2열" android:layout_gravity="fill_horizontal"/>
     </GridLayout>
 
     <GridLayout
@@ -36,12 +33,11 @@
         android:rowCount="2"
         android:columnCount="2"
         android:padding="5dp"
-        android:orientation="vertical"
-        >
-        <Button android:text="1행 1열" android:layout_width="150dp" android:layout_height="100dp"/>
-        <Button android:text="2행 1열" android:layout_gravity="fill_horizontal"/>
-        <Button android:text="1행 2열" android:layout_gravity="fill_horizontal|fill_vertical"/>
-        <Button android:text="2행 2열" android:layout_gravity="fill"/>
+        android:orientation="vertical">
+        <Button android:text="1행1열" android:layout_marginRight="5dp" android:layout_width="150dp" android:layout_height="100dp"/>
+        <Button android:text="2행1열" android:layout_marginRight="5dp" android:layout_gravity="fill_horizontal"/>
+        <Button android:text="1행2열" android:layout_gravity="fill_horizontal|fill_vertical"/>
+        <Button android:text="2행2열" android:layout_gravity="fill"/>
     </GridLayout>
 
     <GridLayout
@@ -50,39 +46,40 @@
         android:background="#0000ff"
         android:rowCount="3"
         android:columnCount="3"
-        android:padding="5dp"
-        >
-        <Button android:text="1행 1열" android:layout_marginRight="5dp" android:layout_width="150dp" android:layout_height="100dp"/>
-        <Button android:text="1행 2열" android:layout_columnSpan="2" android:layout_gravity="fill"/>
-
-        <Button android:text="2행 1열" android:layout_marginRight="5dp" android:layout_rowSpan="2" android:layout_gravity="fill"/>
-        <Button android:text="2행 2열" android:layout_marginRight="5dp"/>
-        <Button android:text="2행 3열" android:layout_gravity="fill_horizontal"/>
-
-        <Button android:text="3행 2열"/>
-        <Button android:text="3행 3열" android:layout_gravity="fill"/>
-
-    </GridLayout>
-    <!--
-        android:layout_rowSpan
+        android:padding="5dp">
+        <!--
+        android:layout_rowSpan,
         android:layout_columnSpan는
         android:layout_gravity="fill"와 같이 사용하자
-     -->
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:rowCount="3"
-        android:columnCount="5"
-        android:padding="5dp"
-        >
-        <TextView android:text="아이디" android:textSize="18sp"/>
-        <EditText android:hint="아이디를 입력하세요" android:layout_columnSpan="4" android:layout_marginRight="5dp"/>
-        <TextView android:text="비밀번" android:textSize="18sp"/>
-        <EditText android:hint="비밀번호를 입력하세요" android:layout_columnSpan="4"/>
-        <Button android:text="확인" android:layout_row="2" android:layout_column="3" android:layout_marginRight="5dp"/>
-        <Button android:text="취소" android:layout_row="2" android:layout_column="4" android:layout_marginRight="5dp"/>
+        -->
+        <Button android:text="1행1열" android:layout_marginRight="5dp" android:layout_width="150dp" android:layout_height="100dp"/>
+        <Button android:text="1행2열" android:layout_columnSpan="2" android:layout_gravity="fill"/>
 
+        <Button android:text="2행1열" android:layout_marginRight="5dp" android:layout_rowSpan="2" android:layout_gravity="fill"/>
+        <Button android:text="2행2열" android:layout_marginRight="5dp"/>
+        <Button android:text="2행3열" android:layout_gravity="fill_horizontal"/>
 
-
+        <Button android:text="3행2열" android:layout_marginRight="5dp"/>
+        <Button android:text="3행3열" android:layout_gravity="fill"/>
     </GridLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:rowCount="3"
+            android:columnCount="5"
+            android:padding="10dp">
+
+            <TextView android:text="아 이 디" android:textSize="18sp" android:layout_width="100dp" android:layout_gravity="center_horizontal"/>
+            <EditText android:hint="아이디를 입력하세요?" android:layout_columnSpan="4" android:layout_gravity="fill_horizontal"/>
+            <TextView android:text="비밀번호" android:textSize="18sp" android:layout_width="100dp" android:layout_gravity="center_horizontal"/>
+            <EditText android:hint="비밀번호를 입력하세요?" android:layout_columnSpan="3" android:layout_gravity="fill_horizontal"/>
+            <Button android:text="확인" android:layout_row="2" android:layout_column="3" android:layout_marginRight="5dp"/>
+            <Button android:text="취소" android:layout_row="2" android:layout_column="4"/>
+        </GridLayout>
+    </ScrollView>
+
 </LinearLayout>
