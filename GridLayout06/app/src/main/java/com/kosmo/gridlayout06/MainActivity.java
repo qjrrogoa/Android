@@ -9,7 +9,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("그리드 레이아");
-        setContentView(R.layout.activity_main);
+        setTitle("그리드 레이아웃");
+        setContentView(R.layout.activity_mai웃n);
     }
 }
