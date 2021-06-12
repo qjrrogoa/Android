@@ -10,6 +10,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle("그리드 레이아웃");
-        setContentView(R.layout.activity_mai웃n);
+        setContentView(R.layout.activity_main);
     }
 }
