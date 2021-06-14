@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+아래 적용시에는
+매니페스트파일의 theme속성을 Theme.AppCompat계열로
+바꿔라
+예:android:theme="@style/Theme.AppCompat.Light"
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/myred" android:state_pressed="true"/>
+    <item android:drawable="@color/mycolor" />
+
+</selector>

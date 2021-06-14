@@ -17,7 +17,9 @@ public class MainActivity extends AppCompatActivity {
         datePicker.setOnDateChangedListener(new DatePicker.OnDateChangedListener() {
             @Override
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                Toast.makeText(view.getContext(),String.format("%s-%s-%s",year,monthOfYear+1,dayOfMonth),Toast.LENGTH_LONG).show();            }
+                Toast.makeText(view.getContext(),String.format("%s-%s-%s",year,monthOfYear+1,dayOfMonth),Toast.LENGTH_LONG).show();
+
+            }
         });
     }
 }
