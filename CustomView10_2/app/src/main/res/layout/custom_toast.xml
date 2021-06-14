@@ -17,7 +17,7 @@
 
     <TextView
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:id="@+id/textView"
         android:gravity="center"
         android:maxLines="1"
@@ -25,36 +25,21 @@
         />
 
     <!--
-
     ...표시 android:singleLine="true" dprecated됨
-
     android:maxLines="1" :한줄만 표시
-
     ellipsize:Text가 TextView를 넘어갔을 때 표시할 방법을 설정
 
-    ​
-
     ellipsize = "end" - 뒷 부분을 ...으로 표시
-
     아래는 maxLines와 함께쓰면 빨간줄 :tools:ignore="EllipsizeMaxLines" 추가시 제거됨
-
     ellipsize = "none" - ... 없이 뒷 부분 잘라서 표시 (기본)
-
     ellipsize = "start" - 앞 부분을 ...으로 표시
-
     ellipsize = "middle" - 중간 부분을 ...으로 표시
-
     ellipsize = "marquee" - 흐르는 텍스트 효과
 
     아래 세줄과 자바코드에서 textView.setSelected(true)추가하면 marquee가 적용됨
-
     android:ellipsize="marquee"
-
     android:marqueeRepeatLimit="marquee_forever"
-
     android:singleLine="true"
-
-    ​
 
     -->
 
