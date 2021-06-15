@@ -8,38 +8,38 @@
     android:orientation="vertical"
     android:padding="20dp"
     tools:context=".MainActivity">
-    <!-- stepSize 디폴트값 : 0.5
-     안드로이드에서 제공하는 스타일중에서 ratingBarStyleIndicator는
-     터치시 rating이 적용 안됨. 자바코드로만 rating 변경 가능.
+    <!-- stepSize디폴트값:0.5
+         안드로이드에서 제공하는 스타일중에서 ratingBarStyleIndicator은
+         터치시  rating이 적용 안됨.자바코드로만 rating설정할 수 있다
     -->
-
     <RatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:stepSize="1"
-        android:id="@+id/ratingbar1"/>
-
+        android:id="@+id/ratingbar1"
+        />
     <RatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:numStars="7"
         android:rating="2"
         android:id="@+id/ratingbar2"/>
-
     <RatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:stepSize="1.5"
         android:rating="1.5"
         android:id="@+id/ratingbar3"
-        style="@android:style/Theme.Material.Dialog"/>
-
+        style="@android:style/Widget.Material.RatingBar.Indicator"
+        />
+        <!--
+        style="?android:ratingBarStyleIndicator"
+        -->
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button_inc"
         android:text="증가"/>
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,43 +7,35 @@
     android:padding="20dp"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <CheckBox
             android:id="@+id/check_politics"
             android:text="정치"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
         <CheckBox
             android:id="@+id/check_economics"
             android:text="경제"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
         <CheckBox
             android:id="@+id/check_entertainments"
             android:text="연예"
             android:checked="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
         <CheckBox
             android:id="@+id/check_sports"
             android:text="스포츠"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
-
     <LinearLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
-
         <RadioGroup
             android:id="@+id/radiogroup"
             android:layout_width="match_parent"
@@ -54,9 +45,9 @@
 
             <RadioButton
                 android:id="@+id/radio_male"
-                android:text="남성"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="남성" />
 
             <RadioButton
                 android:id="@+id/radio_female"
@@ -64,17 +55,13 @@
                 android:checked="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-
             <RadioButton
                 android:id="@+id/radio_trans"
                 android:text="트랜스젠더"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-
         </RadioGroup>
-
     </LinearLayout>
-
     <ToggleButton
         android:id="@+id/togglebutton"
         android:text="토글버튼(표시안됨)"
@@ -83,7 +70,6 @@
         android:checked="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
     <Switch
         android:id="@+id/switch_button"
         android:text="블루투스"
@@ -92,19 +78,18 @@
         android:checked="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
     <Spinner
-    android:id="@+id/spinner"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    />
 
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        />
     <Button
         android:id="@+id/button"
         android:text="확인"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
     <TextView
         android:id="@+id/textview"
         android:background="#ffff00"
@@ -112,6 +97,7 @@
         android:layout_height="match_parent"
         android:padding="10dp"
         android:lineSpacingExtra="5dp"
-    />
+
+        />
 
 </LinearLayout>

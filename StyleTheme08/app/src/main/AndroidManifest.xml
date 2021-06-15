@@ -8,7 +8,6 @@
         아래 속성 추가
         예:android:background="#ffffff"
     -->
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"

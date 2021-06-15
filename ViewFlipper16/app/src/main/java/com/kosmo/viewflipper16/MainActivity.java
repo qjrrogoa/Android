@@ -13,18 +13,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //액션바 숨기기
+        //액션바 숨기기]
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
-
         //위젯 얻기]
         Button btnNext = findViewById(R.id.btn_next);
         Button btnPrev = findViewById(R.id.btn_prev);
         Button btnStart = findViewById(R.id.btn_start);
         Button btnStop = findViewById(R.id.btn_stop);
-
         flipper = findViewById(R.id.flipper);
-        //플립핑 간격 설정 - 자동으로 필립핑시]
+        //플립핑 간격 설정-자동으로 플립핑시]
         flipper.setFlipInterval(1000);
         //이벤트 핸들러 객체 생성
         EventHandler handler = new EventHandler();
@@ -39,15 +37,12 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            if(v.getId()==R.id.btn_next)
-                flipper.showNext();
-            else if(v.getId()==R.id.btn_prev)
-                flipper.showPrevious();
-            else if(v.getId()==R.id.btn_start)
-                flipper.startFlipping();
-            else
-                flipper.stopFlipping();
+            if(v.getId()==R.id.btn_next) flipper.showNext();
+            else if(v.getId() == R.id.btn_prev) flipper.showPrevious();
+            else if(v.getId()==R.id.btn_start) flipper.startFlipping();//자동 플립핑
+            else flipper.stopFlipping();//자동 플립핑 중지
         }
     }
+
 
 }

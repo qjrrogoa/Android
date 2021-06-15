@@ -6,34 +6,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <!-- 안드로이드에서 제공하는 스타일을 위젯에 적용 -->
+    <!--안드로이드에서 제공하는 스타일을 위젯에 적용-->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="안드로이드 제공 스타일 적용"
         style="@style/TextAppearance.AppCompat.Title"
-        android:id="@+id/androidStyle"/>
-    <!-- 내가 만든 스타일을 위젯에 적용 -->
+        android:id="@+id/androidStyle"
+    />
+    <!--내가 만든 스타일을 위젯에 적용-->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="내가 만든 스타일 적용"
         style="@style/StyleMadeByMe"
         android:layout_below="@id/androidStyle"
-        android:id="@+id/myStyle"/>
+        android:id="@+id/myStyle"
+        />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="가로모드"
         android:id="@+id/landscape"
         android:layout_below="@id/myStyle"
-        style="@style/Widget.AppCompat.Button.Colored"/>
+        style="@style/Widget.AppCompat.Button.Colored"
+        />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="세로모드"
         android:id="@+id/portrait"
-        android:layout_below="@id/landscape"/>
+        android:layout_below="@id/landscape"
 
+        />
 </RelativeLayout>
