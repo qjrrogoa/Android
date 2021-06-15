@@ -1,0 +1,2 @@
+rootProject.name = "TouchEvent19"
+include ':app'
