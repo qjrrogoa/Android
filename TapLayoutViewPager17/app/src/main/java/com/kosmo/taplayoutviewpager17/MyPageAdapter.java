@@ -16,8 +16,9 @@ public class MyPageAdapter extends FragmentStateAdapter {
 
     private List<Fragment> fragments = new Vector<>();
 
-    public MyPageAdapter(@NonNull FragmentActivity fragmentActivity) {
+    public MyPageAdapter(@NonNull FragmentActivity fragmentActivity,List<Fragment> fragments) {
         super(fragmentActivity);
+        this.fragments = fragments;
     }
 
     //탭 메뉴의 position에 해당하는 프레그먼트를 반환
