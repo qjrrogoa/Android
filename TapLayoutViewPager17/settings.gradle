@@ -1,0 +1,2 @@
+rootProject.name = "TapLayoutViewPager17"
+include ':app'
