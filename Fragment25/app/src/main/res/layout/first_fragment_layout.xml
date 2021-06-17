@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF0000"
+    android:gravity="center"
+    >
+    <!--액티비티와 프래그먼트사이의 데이타전달 테스트용 버튼-->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnGetData"
+        android:textSize="20sp"
+        android:text="프래그먼트1:데이타받기"/>
+</LinearLayout>

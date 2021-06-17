@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:text="화면1"
+        android:id="@+id/btnFirstFragment"/>
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="5dp"
+        android:text="화면2"
+        android:id="@+id/btnSecondFragment"/>
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:text="화면3"
+        android:id="@+id/btnThirdFragment"/>
+
+</LinearLayout>
