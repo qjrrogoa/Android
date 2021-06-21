@@ -1,0 +1,2 @@
+rootProject.name = "FileIO26_2"
+include ':app'
