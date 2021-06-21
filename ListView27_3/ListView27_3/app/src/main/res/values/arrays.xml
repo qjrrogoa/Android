@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="mountains">
+        <item>한라산</item>
+        <item>지리산</item>
+        <item>속리산</item>
+        <item>태백산</item>
+        <item>덕유산</item>
+    </string-array>
+
+</resources>
