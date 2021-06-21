@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textviewMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="메인 액티비티 화면!"
+        android:textSize="20sp"
+        android:textColor="#00ff00"
+        android:maxLines="1"
+        />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="아이디"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/edituser"
+                android:hint="아이디를 입력하세요!"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="비밀번호"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/editpass"
+                android:hint="비밀번호를 입력하세요!"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                />
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/btnStartActivity"
+            android:text="Only 데이타전달"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btnStartActivityforResult"
+            android:text="데이타전달및 결과데이타 받기"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btnStartActivityforResult2"
+            android:text="요청코드 테스트용"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>
