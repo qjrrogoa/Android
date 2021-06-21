@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="movies">
+        <item>브레이브 하트</item>
+        <item>잔다르크</item>
+        <item>범좌와의 전쟁</item>
+        <item>신세계</item>
+    </string-array>
+
+</resources>
