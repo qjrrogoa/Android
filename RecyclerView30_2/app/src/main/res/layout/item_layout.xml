@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+cardElevation:그림자가 있는 카드뷰를 생성
+cardCornerRadius:모서리 반지름 설정
+cardBackgroundColor:카드뷰의 배경색을 설정
+contentPadding:카드 뷰 내의 여백 설정
+-->
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:id="@+id/cardview"
+    android:layout_margin="20dp"
+    app:cardUseCompatPadding="true"
+    app:cardBackgroundColor="#8D8D8D"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="20dp"
+    app:contentPadding="10dp"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <!--https://github.com/vinc3m1/RoundedImageView-->
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/itemImage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:scaleType="centerCrop"
+            app:riv_corner_radius_top_left="20dp"
+            app:riv_corner_radius_top_right="20dp"
+            app:riv_oval="false"
+            android:src="@drawable/rounded"/>
+
+
+        <TextView
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/itemTitle"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
