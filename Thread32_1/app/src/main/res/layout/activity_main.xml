@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:padding="10dp"
+        android:text="안드로이드에서 스레드 사용" />
+    <TextView
+        android:id="@+id/tvMainNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:textColor="#ff0000"
+        android:text="0" />
+    <TextView
+        android:id="@+id/tvThreadNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:textColor="#00ff00"
+        android:text="0" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ANR발생"
+        android:onClick="error"/>
+      <Button
+        android:onClick="runonui"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="runOnUiThread() 메소드"/>
+    <Button
+        android:onClick="widgetpost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="위젯.post() 메소드"/>
+    <Button
+        android:onClick="asynctask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AsyncTask클래스 이용"/>
+    <Button
+        android:onClick="stop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="스레드 중지"
+        />
+</LinearLayout>
