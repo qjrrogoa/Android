@@ -9,8 +9,18 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Map;
+import java.util.function.Consumer;
+
+
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.Observer;
+import io.reactivex.rxjava3.core.Scheduler;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /*
  작업스레드안에서 위젯의 UI변경시 ANR발생
@@ -46,30 +56,35 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void run() {
 
+            try {
+                while (true) {
+                    threadNumber++;
+                    //try~catch불필요:안드로이드 OS에 있는 클래스
+                    sleep(500);//SystemClock.sleep(500);//
+                    //textThread.setText(String.valueOf(threadNumber));//ANR발생 테스트용(연속해서 계속 버튼 누르기)
 
-            while (true) {
-                threadNumber++;
-                //try~catch불필요:안드로이드 OS에 있는 클래스
-                SystemClock.sleep(500);//sleep(500);
-                //textThread.setText(String.valueOf(threadNumber));//ANR발생 테스트용(연속해서 계속 버튼 누르기)
+                    //방법1]
 
-                //방법1]
-                /*
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         //메인스레드에 부착된 위젯의 UI변경
                         textThread.setText(String.valueOf(threadNumber));
                     }
-                });*/
-                //방법2]
-                textThread.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        //메인스레드에 부착된 위젯의 UI변경
-                        textThread.setText(String.valueOf(threadNumber));
-                    }
                 });
+                    //방법2]
+                    /*textThread.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            //메인스레드에 부착된 위젯의 UI변경
+                            textThread.setText(String.valueOf(threadNumber));
+                        }
+                    });*/
+                }///while
+
+            }///try
+            catch(InterruptedException e){
+                e.printStackTrace();
             }
 
 
@@ -84,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         if(workingThread ==null || !workingThread.isAlive()){
             workingThread = new WorkingThread();
             workingThread.setDaemon(true);
+
             workingThread.start();
         }
         mainNumber++;
@@ -119,12 +135,96 @@ public class MainActivity extends AppCompatActivity {
             myAsyncTask.execute();
         }
     }
+    /*
+    RxJava는 Reactive Java
+    자바에서 Reactive Programming을  구현하기 위해서 나온 라이브러리
+    Reactive Programming은 비동기 데이터 흐름을 중시하는 프로그래밍
+    원격서버 (API서버)에서 데이터 입출력을 하여도 메인쓰레드와 방해하지 않는것을
+    중시하는 프로그래밍이다다    라이브러리 추가
+    implementation group: 'io.reactivex.rxjava3', name: 'rxjava', version: '3.0.13'
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+     */
+
+
+
+    Observer myObserver = new Observer() {
+        @Override
+        public void onSubscribe(Disposable d) {
+            Log.d("com.kosmo.thread","onSubscribe thread:"+Thread.currentThread().getName());
+        }
+
+        @Override
+        public void onNext(Object value) {
+            Log.d("com.kosmo.thread","on next, valor:<<"+value.toString()+">> \n nombre hilo:"+Thread.currentThread().getName());
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            Log.d("com.kosmo.thread","error "+e.toString());
+        }
+
+        @Override
+        public void onComplete() {
+            Log.d("com.kosmo.thread","onCompleted thread:"+Thread.currentThread().getName());
+        }
+    };
+    private Disposable rxJava;
+
+    public void asyncTask(){
+        //백그라운드 작업(run()메소드에서 하는 작업)을 하기전 실행할 일
+        //예: 프로그래스 창 띄우기기
+        //onPreExecute()부분
+        Toast.makeText(this,"백그라운드 작업전 할 일",Toast.LENGTH_SHORT).show();
+
+        rxJava = Observable.fromCallable(()->{
+            //run()메소드 혹은 doInBackground() 작업 코딩
+            //백그라운드 작업 시작
+            //여기서 UI 업데이트 하지 말자
+            while(true){
+                threadNumber++;
+                SystemClock.sleep(500);
+                textThread.setText(String.valueOf(threadNumber));
+                //dispose()메소드 호출시 스레드 종료
+                if(rxJava.isDisposed()) break;
+            }
+
+            return String.valueOf(threadNumber);//반환값이 subscribe()메소드의 인자로 전달된다
+            //백그라운드 작업 끝
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe((result)->{
+                    //여기사 UI 업데이트
+                    //백그라운드 작업이 끝났을때 실행되는 메소드 즉 onPostExecute()부분이다
+                    //textThread.setText(String.valueOf(result));
+
+                    //작업이 complete되었음으로 스레드 중지
+                    rxJava.dispose();
+                    Log.i("com.kosmo.thread","RxJava:result="+result);
+                });
+
+
+
+    }//////////////
+    public void rxJava(View view){
+        mainNumber++;
+        textMain.setText(String.valueOf(mainNumber));
+        asyncTask();
+    }
     public void stop(View view){
+        //Thread상속받은 스레드 클래스를 직접 만들어서 사용할때
+
+        if(workingThread !=null && workingThread.isAlive()){
+            workingThread.interrupt();//interrupt() 호출시 InterruptedException예외 발생
+        }
         //AsyncTask를 사용할때
         if(myAsyncTask !=null) myAsyncTask.cancel(true);
+        //RxJava 사용시
+        if(rxJava !=null) rxJava.dispose();
     }
     //[방법3]
      /*
+        API LEVEL 30이후 DEPRECATED
         1.스레드 클래스 불필요
         2.AsyncTask상속받아서 주요 메소드 오버라딩한 후
           실행시킬때는 AsyncTask객체.execute(파라티터들)

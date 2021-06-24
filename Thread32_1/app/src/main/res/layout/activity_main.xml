@@ -50,6 +50,11 @@
         android:layout_height="wrap_content"
         android:text="AsyncTask클래스 이용"/>
     <Button
+        android:onClick="rxJava"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RxJava 이용"/>
+    <Button
         android:onClick="stop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
