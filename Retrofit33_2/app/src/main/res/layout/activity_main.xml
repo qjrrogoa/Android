@@ -86,14 +86,10 @@
                 />
         </LinearLayout>
     </LinearLayout>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:padding="20dp"
-            android:id="@+id/text_result"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:textSize="20sp"/>
-    </ScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" />
+
 </LinearLayout>

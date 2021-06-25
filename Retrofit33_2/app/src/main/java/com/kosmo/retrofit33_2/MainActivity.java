@@ -9,8 +9,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.FileWriter;
 import java.util.HashMap;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnPlain;
     private Button btnJson;
     private Button btnJsonArray;
-    private TextView textResult;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //위젯 얻기
         initView();
+
+
         //버튼에 리스너 부착
         btnPlain.setOnClickListener(handler);
         btnJson.setOnClickListener(handler);
@@ -51,7 +59,14 @@ public class MainActivity extends AppCompatActivity {
 
                 SpringApiService springApiService=getSpringApiService(ScalarsConverterFactory.create());
                 //요청을 보내기 위한 Call객체 생성
-                Call<String> call=springApiService.getMemberText(username,password);
+                //@Query사용시
+                //Call<String> call=springApiService.getMemberText(username,password);
+                //@QueryMap사용시
+                HashMap<String,String> map = new HashMap<>();
+                map.put("id",username);//키값은 요청시 파라미터명과 일치
+                map.put("pwd",password);
+                Call<String> call=springApiService.getMemberText(map);
+
                 call.enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {
@@ -85,16 +100,41 @@ public class MainActivity extends AppCompatActivity {
                             HashMap<String,String> map=response.body();
                             Toast.makeText(v.getContext(),map.get("isLogin"),Toast.LENGTH_SHORT).show();
                         }
-                        else{
+                        else{}
+                    }
+                    @Override
+                    public void onFailure(Call<HashMap<String, String>> call, Throwable t) {}
+                });
+            }////////////////
+            else{
+                SpringApiService springApiService=getSpringApiService(JacksonConverterFactory.create());
+                Call<List<BBSDto>> call= springApiService.getMembers();
 
+                call.enqueue(new Callback<List<BBSDto>>() {
+                    @Override
+                    public void onResponse(Call<List<BBSDto>> call, Response<List<BBSDto>> response) {
+                        Log.i("com.kosmo.retrofit","상태코드:"+response.code());
+                        if(response.isSuccessful()) {
+                            List<BBSDto> items = response.body();
+                           
+
+                            BBSAdapter adapter = new BBSAdapter(v.getContext(),items);
+                            recyclerView.setAdapter(adapter);
+
+                            recyclerView.setLayoutManager(new LinearLayoutManager(v.getContext()));
+                        }
+                        else{
+                            Log.i("com.kosmo.retrofit","!200:"+response.errorBody().toString());
                         }
                     }
                     @Override
-                    public void onFailure(Call<HashMap<String, String>> call, Throwable t) {
-
+                    public void onFailure(Call<List<BBSDto>> call, Throwable t) {
+                        Log.i("com.kosmo.retrofit","onFailure:"+t.getMessage());
                     }
                 });
+
             }
+
         }
     };//////////////////////////////////
 
@@ -112,6 +152,6 @@ public class MainActivity extends AppCompatActivity {
         btnPlain = (Button) findViewById(R.id.btn_plain);
         btnJson = (Button) findViewById(R.id.btn_json);
         btnJsonArray = (Button) findViewById(R.id.btn_json_array);
-        textResult = (TextView) findViewById(R.id.text_result);
+        recyclerView = findViewById(R.id.recyclerView);
     }
 }
