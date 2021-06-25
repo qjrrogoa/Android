@@ -1,0 +1,2 @@
+rootProject.name = "JSONParse34_1"
+include ':app'
