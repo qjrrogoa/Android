@@ -17,6 +17,6 @@
         android:layout_width="0dp"
         android:layout_weight="4"
         android:layout_height="wrap_content"
-        android:text="데이타 수신 중입니다"
+        android:text="데이터 수신 중입니다"
         android:layout_gravity="center_vertical"/>
 </LinearLayout>

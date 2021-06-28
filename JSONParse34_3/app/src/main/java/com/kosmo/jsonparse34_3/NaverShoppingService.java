@@ -8,10 +8,9 @@ import retrofit2.http.Headers;
 import retrofit2.http.Query;
 
 public interface NaverShoppingService {
-    @Headers({
-            "X-Naver-Client-Id: bw3v2DjodEnbgwnFB9_p",
-            "X-Naver-Client-Secret: 6oDYO78Jmy"
-    })
+
+    @Headers({"X-Naver-Client-Id: oND3hWoBb9TRRqYJ1H3Y","X-Naver-Client-Secret: MqMeCzzA85"})
     @GET("/v1/search/shop.json")
-    Call<String> getProducts(@Query("query") String query);
-}
+    Call<NaverShoppingItem> getProducts(@Query("query") String query);
+
+}////PhotoService

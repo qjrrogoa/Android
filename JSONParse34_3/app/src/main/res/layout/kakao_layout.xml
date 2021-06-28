@@ -14,33 +14,27 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:padding="10dp">
-        <ImageView
-            android:id="@+id/itemImage"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginRight="10dp"
-            android:scaleType="fitXY" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/itemTitle"
+                android:id="@+id/itemProductName"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="18sp" />
             <TextView
-                android:id="@+id/itemMaker"
+                android:id="@+id/itemScore"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:textSize="15sp" />
             <TextView
-                android:id="@+id/itemPrice"
+                android:id="@+id/itemCoordinates"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"

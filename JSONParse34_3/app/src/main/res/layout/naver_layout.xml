@@ -8,11 +8,6 @@
     tools:context=".MainActivity"
     android:orientation="vertical"
     android:padding="5dp">
-    <Button
-        android:onClick="getKakaoProducts"
-        android:text="Open API 사용하기"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
