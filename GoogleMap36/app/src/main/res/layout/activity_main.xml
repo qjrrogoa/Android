@@ -57,10 +57,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         class="com.google.android.gms.maps.SupportMapFragment"
+        map:cameraTargetLat="37.478696787710035"
+        map:cameraTargetLng="126.87865509830628"
+        map:cameraZoom="16"
         />
-
-
-
 
     <!--
     아래는 class속성 대신 사용가능(값은 MapFragment로 고정)
@@ -69,6 +69,8 @@
     map:cameraTargetLat="37.557"
     map:cameraTargetLng="126.933"
     map:cameraZoom="16"
+    map:mapType="satellite"
+
     -->
 
 
