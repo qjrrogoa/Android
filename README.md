@@ -3,6 +3,7 @@
 # 핸들러 부착 방법
 
 1. 익명 클래스?
+2. 안된다!!!
 
         var.setOnClickListener(new View onClickListener(){
           @Override
